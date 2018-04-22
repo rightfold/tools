@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# This program prints the latest Stackage LTS.
+
+set -o errexit
+
+curl -sI https://www.stackage.org/lts | awk '$1 == "Location:" { print substr($2, 2) }'
